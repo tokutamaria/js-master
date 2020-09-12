@@ -16,17 +16,19 @@
  * 問題２：
  * 関数fnの引数numが渡ってこない場合（undefinedまたはnullの場合）のみ、
  * 初期値として-1を設定したいものとします。
- * 
+ *
  * 以下の関数fnの初期化を適切に書き直してください。
  * ※aには0以上の整数値が渡ってくるものとします。
  */
 let a = 1;
 
 function fn(num) {
-    num = num || -1;
+    if(num === undefined || num === null ){
+        num = -1;
+    }
     console.log(num);
 }
-fn(a);
+fn(1);
 
 
 /**
@@ -39,3 +41,12 @@ fn(a);
  * greeting("Bob"); -> 出力結果："hello, Bob"
  *
  */
+
+
+
+function greeting(name, hi){
+    hi = hi || 'hello';
+    console.log(`${hi}, ${name}`);
+}
+ greeting("Bod", "hi");
+greeting("Bod");
