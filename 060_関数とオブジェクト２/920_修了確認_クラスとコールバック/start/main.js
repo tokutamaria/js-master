@@ -2,10 +2,10 @@
  * 問題：
  * Person.helloメソッドをsetTimeoutで１秒後に
  * 実行しようとしましたが、"hello Bob"と表示されませんでした。
- * 
+ *
  * setTimeoutに渡す方法がおかしそうなのですが、
  * どのようにすればよいでしょうか？
- * 
+ *
  * ※２通りの方法で実装してみてください。
  */
 class Person {
@@ -16,8 +16,9 @@ class Person {
 
   hello() {
       console.log('hello ' + this.name);
+      return this;
   }
 }
 
 const bob = new Person('Bob', 23);
-setTimeout(bob.hello, 1000);
+setTimeout(bob.hello.bind(bob), 1000);
